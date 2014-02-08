@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Bermain dengan RSS</title>
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+</head>
+<body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <!-- Be sure to leave the brand out there if you want it shown -->
+          <a class="brand" href="#">Bermain dengan RSS</a>
+
+          <!-- Everything you want hidden at 940px or less, place within here -->
+          <div class="nav-collapse collapse">
+            <!-- .nav, .navbar-search, .navbar-form, etc -->
+            <ul class="nav">
+              <li id="srcTab"><a href="#">Sumber</a></li>
+              <li id="feedTab"><a href="#">Lihat Feed</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="container">
+      <form id="frmSources" target="#"   style="display:none">
+        <fieldset>
+          <legend>Form Sumber RSS Feed</legend>
+          <label for="sources">Sumber RSS</label>
+          <textarea id="sources" name="sources" class="input-block-level" rows="5"></textarea>
+          <span class="help-block">Masukan sumber full url RSS Feed pisahkan dengan ENTER</span>
+        </fieldset>
+      </form>
+      <div id="feedContainer">
+        <a id="refresh" href="#" class="btn btn-primary btn-large btn-block">Refresh</a>
+        <div class="page-header">
+          <h1>Kompilasi RSS Feed</h1>
+        </div>
+        <div id="feedList">
+        </div>
+      </div>
+    </div>
+
+    <script id="tplItem" type="text/template">
+      <li class="media">
+        <a class="pull-left" href="<%= channel.link %>">
+          <img class="media-object" src="<%= channel.image %>" width=64 height=64>
+        </a>
+        <div class="media-body">
+          <a  href="<%= link %>"><h4 class="media-heading"><%= title%></h4></a>
+          <%= description %>
+          <p class="label label-info"><%= pubDate %></p>
+        </div>
+      </li>
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="playrss.js"></script>
+</body>
+
+</html>
